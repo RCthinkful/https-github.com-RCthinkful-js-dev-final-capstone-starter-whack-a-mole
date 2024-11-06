@@ -103,9 +103,19 @@ function chooseHole(holes) {
 *  //   return gameStopped
 *
 */
-function gameOver() {
+
   // TODO: Write your code here
   
+function gameOver() {
+  console.log("gameOver");
+  if (time > 0) {
+    let timeoutId = showUp();
+    return timeoutId;
+  } else {
+    let gameStopped = stopGame();
+    return gameStopped;
+  }
+
 }
 
 /**
