@@ -39,9 +39,19 @@ function randomInteger(min, max) {
  * setDelay("hard") //> returns 856 (returns a random number between 600 and 1200).
  *
  */
-function setDelay(difficulty) {
+
   // TODO: Write your code here.
-  
+function setDelay(difficulty) {
+  if (difficulty === "easy") {
+    console.log("easy");
+    return 1500;
+  } else if (difficulty === "normal") {
+    console.log("normal");
+    return 1000;
+  } else {
+    console.log("hard");
+    return randomInteger(600, 1200);
+  }
 }
 
 /**
