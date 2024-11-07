@@ -213,8 +213,8 @@ function updateTimer() {
 *
 */
 function startTimer() {
-  console.log("startTimer");
-  timer = setInterval(updateTimer, 1000);
+    setInterval(updateTimer, 1000); // Calls updateTimer every 1000ms (1 second)
+}
   return timer;
 }
 
