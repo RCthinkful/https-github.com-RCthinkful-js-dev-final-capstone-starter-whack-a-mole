@@ -272,24 +272,16 @@ function stopGame(){
 */
 function startGame(){
   clearScore();
-  setDuration(15);
+  setDuration(10);
   startTimer();
   setEventListeners();
   showUp();
   return "game started";
 }
 
-/**
- * Handles changes of diffuclty level from the drop down menu
- * @param {*} event 
- */
-function handleSelectChange(event) {
-  difficulty = event.target.value;
-  console.log("difficulty: " + difficulty);
-}
+
 
 startButton.addEventListener("click", startGame);
-difficultyLevel.addEventListener("change", handleSelectChange);
 
 
 // Please do not modify the code below.
