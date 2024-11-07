@@ -273,8 +273,11 @@ function stopGame(){
 *
 */
 function startGame(){
-  //setDuration(10);
-  //showUp();
+  clearScore();
+  setDuration(10);
+  startTimer();
+  setEventListeners();
+  showUp();
   return "game started";
 }
 
