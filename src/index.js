@@ -205,7 +205,7 @@ function updateTimer() {
     console.log("updateTimer: " + timerDisplay);
   }  
   return time;
-
+}
 /**
 *
 * Starts the timer using setInterval. For each 1000ms (1 second)
