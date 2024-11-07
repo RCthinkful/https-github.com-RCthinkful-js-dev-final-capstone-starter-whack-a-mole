@@ -197,12 +197,10 @@ function clearScore() {
 *
 */
 function updateTimer() {
-  console.log("updateTimer");
-  if (time > 0){
+  if (time > 0) {
     time -= 1;
     timerDisplay.textContent = time;
-    console.log("updateTimer: " + timerDisplay);
-  }  
+  }
   return time;
 }
 /**
