@@ -238,8 +238,8 @@ function whack(event) {
 * for an example on how to set event listeners using a for loop.
 */
 function setEventListeners(){
-  // TODO: Write your code here
-
+  console.log("setEventListeners");
+  moles.forEach(mole => mole.addEventListener("click", whack));
   return moles;
 }
 
