@@ -210,7 +210,6 @@ function updateTimer() {
 *
 */
 function startTimer() {
-  console.log("startTimer");
   timer = setInterval(updateTimer, 1000);
   return timer;
 }
