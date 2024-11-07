@@ -1,15 +1,15 @@
 const holes = document.querySelectorAll('.hole');
 const moles = document.querySelectorAll('.mole');
 const startButton = document.querySelector('#start');
-// TODO: Add the missing query selectors:
 const score = document.querySelector("#score"); // Use querySelector() to get the score element
 const timerDisplay = document.querySelector("#timer"); // use querySelector() to get the timer element.
+const difficultyLevel = document.querySelector("#difficulty");; // use querySelector() to get the difficulty element.
 
 let time = 0;
 let timer;
 let lastHole = 0;
 let points = 0;
-let difficulty = "hard";
+let difficulty = "easy"; // set as default
 
 /**
  * Generates a random integer within a range.
@@ -21,7 +21,7 @@ let difficulty = "hard";
  *
  */
 function randomInteger(min, max) {
-  // return Math.floor(Math.random() * (max - min + 1)) + min;
+  return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
 /**
@@ -39,8 +39,6 @@ function randomInteger(min, max) {
  * setDelay("hard") //> returns 856 (returns a random number between 600 and 1200).
  *
  */
-
-  // TODO: Write your code here.
 function setDelay(difficulty) {
   if (difficulty === "easy") {
     console.log("easy");
@@ -68,9 +66,6 @@ function setDelay(difficulty) {
  * const holes = document.querySelectorAll('.hole');
  * chooseHole(holes) //> returns one of the 9 holes that you defined
  */
-
-  // TODO: Write your code here.
-
 function chooseHole(holes) {
   console.log("chooseHole");
   const index = randomInteger(0, 8);
@@ -103,9 +98,6 @@ function chooseHole(holes) {
 *  //   return gameStopped
 *
 */
-
-  // TODO: Write your code here
-  
 function gameOver() {
   console.log("gameOver");
   if (time > 0) {
@@ -173,9 +165,10 @@ function toggleVisibility(hole){
 * for your implementation:
 *
 */
-function updateScore(){
-  points++;
-  score.textContent = points;
+function updateScore() {
+  points = points + 1;
+  score.innerHTML = points;
+  // score.textContent = points;
   return points;
 }
 
@@ -191,18 +184,23 @@ function clearScore() {
   score.textContent = points;
   return points;
 }
+
 /**
 *
 * Updates the control board with the timer if time > 0
 *
 */
 function updateTimer() {
-  if (time > 0) {
+  console.log("updateTimer");
+  // Countdown the time until it runs out to 0.
+  if (time > 0){
     time -= 1;
     timerDisplay.textContent = time;
-  }
+    console.log("updateTimer: " + timerDisplay);
+  }  
   return time;
 }
+
 /**
 *
 * Starts the timer using setInterval. For each 1000ms (1 second)
@@ -210,6 +208,7 @@ function updateTimer() {
 *
 */
 function startTimer() {
+  console.log("startTimer");
   timer = setInterval(updateTimer, 1000);
   return timer;
 }
@@ -235,6 +234,7 @@ function whack(event) {
 */
 function setEventListeners(){
   console.log("setEventListeners");
+  // Add listener for each of the moles
   moles.forEach(mole => mole.addEventListener("click", whack));
   return moles;
 }
@@ -246,6 +246,7 @@ function setEventListeners(){
 *
 */
 function setDuration(duration) {
+  console.log("setDuration");
   time = duration;
   return time;
 }
@@ -257,6 +258,7 @@ function setDuration(duration) {
 *
 */
 function stopGame(){
+  console.log("stopGame");
   // stopAudio(song);  //optional
   clearInterval(timer);
   return "game stopped";
@@ -270,14 +272,24 @@ function stopGame(){
 */
 function startGame(){
   clearScore();
-  setDuration(10);
+  setDuration(15);
   startTimer();
   setEventListeners();
   showUp();
   return "game started";
 }
 
+/**
+ * Handles changes of diffuclty level from the drop down menu
+ * @param {*} event 
+ */
+function handleSelectChange(event) {
+  difficulty = event.target.value;
+  console.log("difficulty: " + difficulty);
+}
+
 startButton.addEventListener("click", startGame);
+difficultyLevel.addEventListener("change", handleSelectChange);
 
 
 // Please do not modify the code below.
