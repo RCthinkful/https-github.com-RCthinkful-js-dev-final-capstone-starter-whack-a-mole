@@ -174,8 +174,9 @@ function toggleVisibility(hole){
 *
 */
 function updateScore() {
-  // TODO: Write your code here
-
+  points = points + 1;
+  score.innerHTML = points;
+  // score.textContent = points;
   return points;
 }
 
@@ -187,23 +188,23 @@ function updateScore() {
 *
 */
 function clearScore() {
-  // TODO: Write your code here
-  // points = 0;
-  // score.textContent = points;
+  points = 0;
+  score.textContent = points;
   return points;
 }
-
 /**
 *
 * Updates the control board with the timer if time > 0
 *
 */
 function updateTimer() {
-  // TODO: Write your code here.
-  // hint: this code is provided to you in the instructions.
-  
+  console.log("updateTimer");
+  if (time > 0){
+    time -= 1;
+    timerDisplay.textContent = time;
+    console.log("updateTimer: " + timerDisplay);
+  }  
   return time;
-}
 
 /**
 *
